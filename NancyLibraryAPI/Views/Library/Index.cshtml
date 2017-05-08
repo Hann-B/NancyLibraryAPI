@@ -1,0 +1,47 @@
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<IEnumerable<NancyLibraryAPI.Models.Book>>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title class="lead">The Nancy Library</title>
+</head>
+
+<body>
+    <div class="row">
+        <div class="col-md-12">
+            <a href="/new" class="btn btn-default">New Book</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="col-md-8">Title</th>
+                        <th class="col-md-2">Author</th>
+                        <th class="col-md-2">Genre</th>
+                        <th class="col-md-2">Year Published</th>
+                        <th class="col-md-2">&emsp;</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="col-md-8">@item.Title</td>
+                            <td class="col-md-2">@item.Author</td>
+                            <td class="col-md-8">@item.Genre</td>
+                            <td class="col-md-2">@item.YearPublished</td>
+                            <td class="col-md-2">
+                                <a href="/edit/@item.Id" class="btn btn-xs btn-primary">Edit</a>
+                                <a href="/delete/@item.Id" data-method="delete" class="btn btn-xs btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

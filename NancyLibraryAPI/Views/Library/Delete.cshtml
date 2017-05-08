@@ -1,0 +1,25 @@
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p>Are you sure you would like to delete this book?</p>
+                <form action="/category/deleteconfirmed" method="post">
+                    <input type="hidden" name="id" value="@ViewBag.BookId" />
+                    <button class="btn btn-default">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
